@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Diwya System</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #1e3c72, #2a5298);
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+      color: white;
+      width: 350px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 16px;
+    }
+
+    .login-box input::placeholder {
+      color: #ccc;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-box button:hover {
+      background-color: #218838;
+    }
+
+    .error {
+      color: red;
+      text-align: center;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-box">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username" />
+  <input type="password" id="password" placeholder="Password" />
+  <button onclick="handleLogin()">Login</button>
+  <div id="error-message" class="error"></div>
+</div>
+
+<script>
+  function handleLogin() {
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const errorMessage = document.getElementById("error-message");
+
+    if (username === "admin" && password === "admin123") {
+      // Option 1: Redirect to a Java application using a local link (e.g., .bat file)
+      window.location.href = "launch.bat"; // Change this to suit your setup
+
+      // Option 2 (for advanced use): Redirect to a local server to launch the Java app
+      // window.location.href = "http://localhost:8080/AAA"; // If using web server
+    } else {
+      errorMessage.textContent = "Invalid username or password.";
+    }
+  }
+</script>
+
+</body>
+</html>
